@@ -31,14 +31,14 @@
             <!--Password length-->
             <div class="d-flex justify-content-between">
                 <p>Password length:</p>
-                <input type="number" id="length" value="8" min="8" max="100" /> 
+                <input type="number" id="length" value="8" min="8" max="100"> 
             </div>
 
             <!--Uppercase Letters-->
             <div class="d-flex justify-content-between">
                 <p>UpperCase Letters:</p>
                 <label class="toggle">
-                    <input class="toggle-checkbox" type="checkbox">
+                    <input class="toggle-checkbox" type="checkbox" id="uppercase">
                     <div class="toggle-switch"></div>
                 </label>
             </div> 
@@ -47,7 +47,7 @@
             <div class="d-flex justify-content-between">
                 <p>LowerCase Letters:</p>
                 <label class="toggle">
-                    <input class="toggle-checkbox" type="checkbox">
+                    <input class="toggle-checkbox" type="checkbox" id="lowercase">
                     <div class="toggle-switch"></div>
                 </label>
             </div>
@@ -56,7 +56,7 @@
             <div class="d-flex justify-content-between">
                 <p>Numbers:</p>
                 <label class="toggle">
-                    <input class="toggle-checkbox" type="checkbox">
+                    <input class="toggle-checkbox" type="checkbox" id="numbers">
                     <div class="toggle-switch"></div>
                 </label>
             </div>
@@ -65,7 +65,7 @@
             <div class="d-flex justify-content-between">
                 <p>Special Characters:</p>
                 <label class="toggle">
-                    <input class="toggle-checkbox" type="checkbox">
+                    <input class="toggle-checkbox" type="checkbox" id="special">
                     <div class="toggle-switch"></div>
                 </label>
             </div>
@@ -75,12 +75,13 @@
 
             <!--Button to Generator Password-->
             <div class="d-flex justify-content-center">
-                <button class="mb-3">Generate Password</button>
+                <button class="mb-3" id="generate-btn">Generate Password</button>
             </div>
         </div>
     </main>
 
     <!--JavaScript File-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
