@@ -3,10 +3,10 @@ const displayPassword = document.querySelector("#generated-password");
 const toggleSwitch = document.querySelector(".toggle-checkbox");
 const generateBtn = document.querySelector("#generate-btn");
 const passwordLength = document.querySelector("#length");
-const upperCaseInput = document.querySelector("#uppercase");
-const lowerCaseInput = document.querySelector("#lowercase");
-const numbersInput = document.querySelector("#numbers");
-const specialInput = document.querySelector("#special");
+let upperCaseInput = document.querySelector("#uppercase");
+let lowerCaseInput = document.querySelector("#lowercase");
+let numbersInput = document.querySelector("#numbers");
+let specialInput = document.querySelector("#special");
 
 //Function that generate the password 
 const generatePassword = () => {
