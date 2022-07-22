@@ -1,46 +1,24 @@
 //Query Selectors 
-const displayPassword = $("#generated-password");
-const passwordLength = $("#length");
-const upperCaseInput = $("#uppercase");
-const lowerCaseInput = $("#lowercase");
-const numbersInput = $("#numbers");
-const specialInput = $("#special");
-const toggleSwitch = $(".toggle-checkbox");
-const generateBtn = $("#generate-btn");
+const displayPassword = document.querySelector("#generated-password");
+const toggleSwitch = document.querySelector(".toggle-checkbox");
+const generateBtn = document.querySelector("#generate-btn");
+const passwordLength = document.querySelector("#length");
+const upperCaseInput = document.querySelector("#uppercase");
+const lowerCaseInput = document.querySelector("#lowercase");
+const numbersInput = document.querySelector("#numbers");
+const specialInput = document.querySelector("#special");
 
-//When the page load, stuff should happen
-$(document).ready(() => {
+//Function that generate the password 
+const generatePassword = () => {
 
-    //Event Listener that generate password once meet all user requirement 
-    generateBtn.on("click", () => {
+    //Variables to generate password 
+    const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const lowercase = uppercase.toLowerCase();
+    const numbers = "0123456789";
+    const special = "#$%&()*+,-./:;<=>?";
+    let characters = "";
+    let password = "";
+};
 
-        //Variables for uppercase, lower, numbers, or special characters 
-        const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        const lowerCase = upperCase.toLowerCase();
-        const numbers = "1234567890";
-        const specials = "#$%&()*+,-./:;<=>?";
-        let characters = "";
-        let password = "";
-
-        //Check to see if the user want to include uppercase 
-        if (upperCaseInput.is(":checked")) characters += upperCase;
-
-        //Check to see if the user want to include lowercase 
-        if (lowerCaseInput.is(":checked")) characters += lowerCase;
-
-        //Check to see if the user want to include numbers 
-        if (numbersInput.is(":checked")) characters += numbers;
-
-        //Check to see if the user want to include special characters 
-        if (specialInput.is(":checked")) characters += specials;
-
-        //Loop through 
-        for (let i = 0; i < passwordLength.value; i++) {
-
-            password += characters.charAt(Math.floor(Math.random() * characters.length));
-        }
-
-        //Display the passowrd 
-        displayPassword.value = password;
-    });
-});
+//Event listener that generate a password when clicked 
+generateBtn.addEventListener("click", generatePassword());
