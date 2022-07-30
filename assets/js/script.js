@@ -1,15 +1,17 @@
 //Query Selectors 
 const displayPassword = document.querySelector("#generated-password");
 const toggleSwitch = document.querySelector(".toggle-checkbox");
+const displayError = document.querySelector("#error-message");
 const generateBtn = document.querySelector("#generate-btn");
-const passwordLength = document.querySelector("#length");
+let lengthInput = document.querySelector("#length");
 let upperCaseInput = document.querySelector("#uppercase");
 let lowerCaseInput = document.querySelector("#lowercase");
 let numbersInput = document.querySelector("#numbers");
 let specialInput = document.querySelector("#special");
 
-//Function that generate the password 
-const generatePassword = () => {
+
+//Event listener that generate a password when clicked 
+generateBtn.addEventListener("click", () => {
 
     //Variables to generate password 
     const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -18,7 +20,38 @@ const generatePassword = () => {
     const special = "#$%&()*+,-./:;<=>?";
     let characters = "";
     let password = "";
-};
 
-//Event listener that generate a password when clicked 
-generateBtn.addEventListener("click", generatePassword());
+    //Store the user inputs in an object
+    const storeInputs = {
+        lengthResult: lengthInput.value,
+        uppercaseResult: upperCaseInput.checked,
+        lowercaseResult: lowerCaseInput.checked,
+        numbersResult: numbersInput.checked,
+        specialResult: specialInput.checked
+    };
+
+    //Validate that at least one checkbox is checked
+    if (!storeInputs.uppercaseResult && !storeInputs.lowercaseResult && !storeInputs.numbersResult && !storeInputs.specialResult) {
+        displayError.textContent = "At least one checkbox need to be checked";
+    };
+
+    //If uppercase is checked, add to characters
+    if (storeInputs.uppercaseResult) characters += uppercase;
+
+    //If lowercase is checked, add to characters
+    if (storeInputs.lowercaseResult) characters += lowercase;
+
+    //If number is checked, add to characters
+    if (storeInputs.numbersResult) characters += numbers;
+
+    //If special is checked, add to characters
+    if (storeInputs.specialResult) characters += special;
+
+    //Loop throught the length on the characters 
+    for (let i = 0; i < storeInputs.lengthResult; i++) {
+        password += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+
+    //Display the password generated 
+    displayPassword.textContent = password;
+});
