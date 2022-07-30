@@ -30,10 +30,19 @@ generateBtn.addEventListener("click", () => {
         specialResult: specialInput.checked
     };
 
+    //Validate that user can only allow length 8 - 30
+    if (storeInputs.lengthResult < 8 || storeInputs.lengthResult > 30) {
+        displayError.textContent = "Length need to be between 8-30";
+    } else {
+        displayError.textContent = "";
+    }
+
     //Validate that at least one checkbox is checked
     if (!storeInputs.uppercaseResult && !storeInputs.lowercaseResult && !storeInputs.numbersResult && !storeInputs.specialResult) {
         displayError.textContent = "At least one checkbox need to be checked";
-    };
+    } else {
+        displayError.textContent = "";
+    }
 
     //If uppercase is checked, add to characters
     if (storeInputs.uppercaseResult) characters += uppercase;
