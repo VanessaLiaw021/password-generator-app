@@ -103,11 +103,11 @@ input[type="checkbox"] {
     }
 }
 
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 375px) {
 
     /* Element Selectors */
     main {
-        width: 98%;
+        width: 88%;
     }
 
     /* Start Wrapper Section */
